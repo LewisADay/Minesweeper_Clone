@@ -1,6 +1,10 @@
 
 #include "Spritesheet.h"
 
+Spritesheet::~Spritesheet() {
+	UnloadTexture(m_Sheet);
+}
+
 void Spritesheet::LoadSheet(const char* sheetPath, int width, int height) {
 	m_Sheet = LoadTexture(sheetPath);
 	m_WidthPerSprite = m_Sheet.width / width;

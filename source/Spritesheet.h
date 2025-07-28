@@ -8,6 +8,7 @@ class Spritesheet {
 public:
 	
 	Spritesheet() = default;
+	~Spritesheet();
 
 	/// <summary>
 	/// Load sprite sheet
