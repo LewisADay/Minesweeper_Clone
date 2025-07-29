@@ -72,7 +72,7 @@ void Application::Run() {
                     RenderTileAt(Tile::Hidden, x, y);
                     continue;
                 }
-                RenderTileAt((Tile)m_Board.GetValue(x, y), x, y);
+                RenderTileAt(static_cast<Tile>(m_Board.GetValue(x, y)), x, y);
             }
         }
 
