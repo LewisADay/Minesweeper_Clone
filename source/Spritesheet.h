@@ -18,9 +18,9 @@ public:
 	/// <param name="height">Number of sprites height wise on the sheet</param>
 	void LoadSheet(const char* sheetPath, int width, int height);
 
-	void RenderSprite(Vector2 coord, Vector2 position, float scale = 1.0f);
+	void RenderSprite(Vector2 coord, Vector2 position, float scale = 1.0f) const;
 	void RegisterSprite(int key, Vector2 coord);
-	void RenderSprite(int key, Vector2 position, float scale = 1.0f);
+	void RenderSprite(int key, Vector2 position, float scale = 1.0f) const;
 
 	int GetWidthPerSprite() const { return m_WidthPerSprite; }
 	int GetHeightPerSprite() const { return m_HeightPerSprite; }
