@@ -17,7 +17,7 @@ Application::Application()
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(screenWidth, screenHeight, "Minesweeper Clone");
 
-    SpriteSheetLoader::GetInstance().LoadSheetsFromIni("sheets.ini");
+    SpriteSheetLoader::GetInstance().LoadSheetsFromIni("resources/spritesheets/sheets.ini");
     m_SpriteSheet = SpriteSheetLoader::GetInstance().GetSheet("Orange");
 
     SetTargetFPS(60);
