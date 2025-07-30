@@ -6,6 +6,9 @@ Spritesheet::~Spritesheet() {
 }
 
 void Spritesheet::LoadSheet(const char* sheetPath, int width, int height) {
+	if (m_Sheet.id) {
+		UnloadTexture(m_Sheet);
+	}
 	m_Sheet = LoadTexture(sheetPath);
 	m_WidthPerSprite = m_Sheet.width / width;
 	m_HeightPerSprite = m_Sheet.height / height;
