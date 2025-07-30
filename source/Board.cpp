@@ -77,7 +77,6 @@ void Board::GenerateBoardRandom() {
 			count += BoundsCheckIsMine(x - 1, y + 1);
 
 			count += BoundsCheckIsMine(x, y - 1);
-			count += BoundsCheckIsMine(x, y);
 			count += BoundsCheckIsMine(x, y + 1);
 
 			count += BoundsCheckIsMine(x + 1, y - 1);
