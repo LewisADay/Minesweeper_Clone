@@ -29,13 +29,13 @@ public:
 	int GetWidth() const;
 	int GetHeight() const;
 	Tile GetValue(const int x, const int y) const;
-	void Render(Vector2 position, Vector2 size, const Spritesheet& spriteSheet, bool useVisibility = true);
+	void Render(Vector2 position, Vector2 size, const SpriteSheet& spriteSheet, bool useVisibility = true);
 	void ToggleFlagAt(int x, int y);
 
 private:
 	void GenerateBoardRandom();
 	bool BoundsCheckIsMine(int x, int y);
-	void RenderTileAt(const Spritesheet& spriteSheet, Tile tile, int x, int y) const;
+	void RenderTileAt(const SpriteSheet& spriteSheet, Tile tile, int x, int y) const;
 	void SetValue(const int x, const int y, const Tile value);
 
 private:

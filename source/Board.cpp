@@ -24,7 +24,7 @@ Board::Tile Board::GetValue(const int x, const int y) const {
 	return m_Data[y * m_Width + x];
 }
 
-void Board::Render(Vector2 position, Vector2 size, const Spritesheet& spriteSheet, bool useVisibility /* = true */) {
+void Board::Render(Vector2 position, Vector2 size, const SpriteSheet& spriteSheet, bool useVisibility /* = true */) {
 	
 	// Determine scale factor for renderering so board fills the available space
 	int yBasePixels = spriteSheet.GetHeightPerSprite() * m_Height;
@@ -100,7 +100,7 @@ bool Board::BoundsCheckIsMine(int x, int y) {
 	return false;
 }
 
-void Board::RenderTileAt(const Spritesheet& spriteSheet, Tile tile, int x, int y) const {
+void Board::RenderTileAt(const SpriteSheet& spriteSheet, Tile tile, int x, int y) const {
 	spriteSheet.RenderSprite(
 		tile,
 		{

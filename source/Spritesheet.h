@@ -4,11 +4,17 @@
 #include <filesystem>
 #include <map>
 
-class Spritesheet {
+class SpriteSheet {
+public:
+	struct Coordinate {
+		int x;
+		int y;
+	};
+
 public:
 	
-	Spritesheet() = default;
-	~Spritesheet();
+	SpriteSheet(std::string_view displayName);
+	~SpriteSheet();
 
 	/// <summary>
 	/// Load sprite sheet
@@ -18,17 +24,19 @@ public:
 	/// <param name="height">Number of sprites height wise on the sheet</param>
 	void LoadSheet(const char* sheetPath, int width, int height);
 
-	void RenderSprite(Vector2 coord, Vector2 position, float scale = 1.0f) const;
-	void RegisterSprite(int key, Vector2 coord);
+	void RenderSprite(Coordinate coord, Vector2 position, float scale = 1.0f) const;
+	void RegisterSprite(int key, Coordinate coord);
 	void RenderSprite(int key, Vector2 position, float scale = 1.0f) const;
 
 	int GetWidthPerSprite() const { return m_WidthPerSprite; }
 	int GetHeightPerSprite() const { return m_HeightPerSprite; }
+	std::string GetDisplayName() const { return m_DisplayName; }
 
 private: // Private members
+	std::string m_DisplayName = "";
 	Texture2D m_Sheet = {};
 	int m_WidthPerSprite = 0;
 	int m_HeightPerSprite = 0;
-	std::map<int, Vector2> m_RegisteredSpriteCoords;
+	std::map<int, Coordinate> m_RegisteredSpriteCoords;
 
 };

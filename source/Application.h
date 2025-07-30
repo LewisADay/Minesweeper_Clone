@@ -32,7 +32,7 @@ private:
 
 private:
 	Scene m_CurrentScene;
-	Spritesheet m_SpriteSheet;
+	std::shared_ptr<SpriteSheet> m_SpriteSheet;
 	Board m_Board;
 	float m_ScaleFactor = 1.0f;
 

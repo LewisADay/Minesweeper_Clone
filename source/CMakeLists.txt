@@ -6,10 +6,12 @@ target_sources(${PROJECT_NAME} PRIVATE
 	"main.cpp"
 	"Application.h"
 	"Application.cpp"
-	"Spritesheet.h"
-	"Spritesheet.cpp"
+	"SpriteSheet.h"
+	"SpriteSheet.cpp"
 	"Board.h"
-	"Board.cpp")
+	"Board.cpp"
+	"SpriteSheetLoader.h"
+	"SpriteSheetLoader.cpp")
 
 target_include_directories(${PROJECT_NAME} PRIVATE
 	${PROJECT_SOURCE_DIR}
