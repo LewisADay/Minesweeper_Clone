@@ -9,6 +9,10 @@ out/
 *.vcxproj.filters
 *.vcxproj.user
 
+# Vendor fetch content folders
+vendor/*build*/**
+vendor/*src*/**
+
 ## C++ Standard GitIgnore source: https://github.com/github/gitignore/blob/main/C%2B%2B.gitignore
 # Prerequisites
 *.d

@@ -1,5 +1,0 @@
-ninja_dyndep_version = 1.0
-build E$:\Code\Playing\Minesweeper_Clone\vendor\loggingad-build\CMakeFiles\LoggingAD.dir\source\Logging.cpp.obj: dyndep
-
-build E$:\Code\Playing\Minesweeper_Clone\vendor\loggingad-build\CMakeFiles\LoggingAD.dir\source\ScopedTimer.cpp.obj: dyndep
-

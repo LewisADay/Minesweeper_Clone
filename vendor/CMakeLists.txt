@@ -22,5 +22,5 @@ FetchContent_Declare(
 	GIT_REPOSITORY https://github.com/LewisADay/LoggingAD.git
 )
 FetchContent_MakeAvailable(LoggingAD)
-target_link_libraries(${PROJECT_NAME} PRIVATE ${LOGGINGAD_LIBRARY_NAME})
 target_include_directories(${PROJECT_NAME} PRIVATE ${LOGGINGAD_INCLUDE_DIR})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${LOGGINGAD_LIBRARY_NAME})
