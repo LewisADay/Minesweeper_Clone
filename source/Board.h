@@ -36,6 +36,7 @@ private:
 	void GenerateBoardRandom();
 	bool BoundsCheckIsMine(int x, int y);
 	void RenderTileAt(const Spritesheet& spriteSheet, Tile tile, int x, int y) const;
+	void SetValue(const int x, const int y, const Tile value);
 
 private:
 	std::vector<Tile> m_Data; // Init to size Width * Height of 0's

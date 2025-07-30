@@ -69,7 +69,7 @@ void Board::GenerateBoardRandom() {
 	// Adjacencies
 	for (int y = 0; y < m_Height; ++y) {
 		for (int x = 0; x < m_Width; ++x) {
-			if (m_Data[y * m_Width + x] == Tile::Bomb) { continue; } // Skip mines
+			if (GetValue(x, y) == Tile::Bomb) { continue; } // Skip mines
 
 			int count = 0;
 			count += BoundsCheckIsMine(x - 1, y - 1);
@@ -83,7 +83,7 @@ void Board::GenerateBoardRandom() {
 			count += BoundsCheckIsMine(x + 1, y);
 			count += BoundsCheckIsMine(x + 1, y + 1);
 
-			m_Data[y * m_Width + x] = static_cast<Tile>(count);
+			SetValue(x, y, static_cast<Tile>(count));
 		}
 	}
 }
@@ -93,7 +93,7 @@ bool Board::BoundsCheckIsMine(int x, int y) {
 		return false;
 	}
 
-	if (m_Data[y * m_Width + x] == Tile::Bomb) {
+	if (GetValue(x, y) == Tile::Bomb) {
 		return true;
 	}
 
@@ -109,4 +109,8 @@ void Board::RenderTileAt(const Spritesheet& spriteSheet, Tile tile, int x, int y
 		},
 		m_ScaleFactor
 	);
+}
+
+void Board::SetValue(const int x, const int y, const Tile value) {
+	m_Data[y * m_Width + x] = value;
 }
