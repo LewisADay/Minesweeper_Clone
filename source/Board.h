@@ -26,17 +26,33 @@ public:
 
 public:
 	Board(int width, int height, int numMines);
+	Board(iVector2 size, int numMines);
 	int GetWidth() const;
 	int GetHeight() const;
 	Tile GetValue(const int x, const int y) const;
-	void Render(Vector2 position, Vector2 size, const SpriteSheet& spriteSheet, bool useVisibility = true);
-	void ToggleFlagAt(int x, int y);
+	Tile GetValue(const iVector2 coord) const;
+	void Render(bool useVisibility = true);
+	void ProcessInputs();
+	bool IsGameOver() const;
+
+public:
+	Vector2 DisplayPosition = { 0, 0 };
+	Vector2 DisplaySize = { (float)GetScreenWidth(), (float)GetScreenHeight() };
+	std::shared_ptr<SpriteSheet> Sprites;
 
 private:
 	void GenerateBoardRandom();
-	bool BoundsCheckIsMine(int x, int y);
-	void RenderTileAt(const SpriteSheet& spriteSheet, Tile tile, int x, int y) const;
-	void SetValue(const int x, const int y, const Tile value);
+	bool BoundsCheckIsMine(const iVector2& coord);
+	void RenderTileAt(Tile tile, const iVector2& coord) const;
+	void SetValue(const iVector2& coord, const Tile value);
+	void ToggleFlagAt(const iVector2& coord);
+	void DepressTile(const iVector2& coord);
+	iVector2 GetMouseBoardCoords(Vector2 position);
+	bool IsMouseOnBoard(const Vector2& position);
+	void ClickTile(const iVector2& coord);
+	void FlagTile(const iVector2& coord);
+	size_t CoordToIndex(const iVector2& coord) const;
+	void RevealTile(iVector2 coord);
 
 private:
 	std::vector<Tile> m_Data; // Init to size Width * Height of 0's
@@ -46,4 +62,6 @@ private:
 	int m_Height;
 	int m_NumMines;
 	float m_ScaleFactor = 1.0f;
+	iVector2 m_DepressedTileCoords = { -1, -1 };
+	bool m_IsGameOver = false;
 };

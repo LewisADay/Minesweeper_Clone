@@ -11,7 +11,9 @@ target_sources(${PROJECT_NAME} PRIVATE
 	"Board.h"
 	"Board.cpp"
 	"SpriteSheetLoader.h"
-	"SpriteSheetLoader.cpp")
+	"SpriteSheetLoader.cpp"
+	"Utils.h"
+)
 
 target_include_directories(${PROJECT_NAME} PRIVATE
 	${PROJECT_SOURCE_DIR}

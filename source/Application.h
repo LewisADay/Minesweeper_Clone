@@ -1,7 +1,10 @@
 #pragma once
 
+#include <raylib.h>
+
 #include "Spritesheet.h"
 #include "Board.h"
+#include "Utils.h"
 
 class Application {
 public:
@@ -9,8 +12,8 @@ public:
 	void Run();
 private:
 	enum Scene {
-		TITLE,
-		GAME
+		Title,
+		Game
 	};
 
 	enum Tile {
@@ -31,9 +34,11 @@ private:
 	};
 
 private:
-	Scene m_CurrentScene;
-	std::shared_ptr<SpriteSheet> m_SpriteSheet;
-	Board m_Board;
-	float m_ScaleFactor = 1.0f;
+	void ProcessInputs();
 
+private:
+	Scene m_CurrentScene;
+	Board m_Board;
+	bool m_UseVisibility = true;
+	int m_Sheet = 0;
 };

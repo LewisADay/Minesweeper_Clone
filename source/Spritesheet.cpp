@@ -19,14 +19,13 @@ void SpriteSheet::LoadSheet(const char* sheetPath, int width, int height) {
 	SetTextureFilter(m_Sheet, TEXTURE_FILTER_POINT);
 }
 
-void SpriteSheet::RenderSprite(Coordinate coord, Vector2 position, float scale /* 1.0f */) const {
+void SpriteSheet::RenderSprite(iVector2 coord, Vector2 position, float scale /* 1.0f */) const {
 	Rectangle spriteBounds{ m_WidthPerSprite * coord.x, m_HeightPerSprite * coord.y, m_WidthPerSprite, m_HeightPerSprite };
 	Rectangle dest{ position.x, position.y, fabsf(m_WidthPerSprite * scale), fabsf(m_HeightPerSprite * scale) };
 	DrawTexturePro(m_Sheet, spriteBounds, dest, { 0.0f, 0.0f }, 0.0f, WHITE);
-	//DrawTextureRec(m_Sheet, spriteBounds, position, WHITE);
 }
 
-void SpriteSheet::RegisterSprite(int key, Coordinate coord) {
+void SpriteSheet::RegisterSprite(int key, iVector2 coord) {
 	m_RegisteredSpriteCoords[key] = coord;
 }
 
