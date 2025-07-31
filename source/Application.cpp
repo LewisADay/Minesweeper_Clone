@@ -18,14 +18,14 @@ Application::Application()
     InitWindow(screenWidth, screenHeight, "Minesweeper Clone");
 
     SpriteSheetLoader::GetInstance().LoadSheetsFromIni("resources/spritesheets/sheets.ini");
-    m_SpriteSheet = SpriteSheetLoader::GetInstance().GetSheet("Orange");
+    m_SpriteSheet = SpriteSheetLoader::GetInstance().GetSheet("Classic");
 
     SetTargetFPS(60);
 }
 
 void Application::Run() {
     bool useVisibility = true;
-    bool orangeSheet = true;
+    int sheet = 0;
     while (!WindowShouldClose()) {
 
         if (IsKeyPressed(KEY_R)) { // Regenerate the board
@@ -35,11 +35,26 @@ void Application::Run() {
             useVisibility = !useVisibility;
         }
         if (IsKeyPressed(KEY_F)) { // Change sprite sheet
-            orangeSheet = !orangeSheet;
-            if (orangeSheet) {
+            sheet = (sheet + 1) % 7;
+            if (sheet == 0) {
+                m_SpriteSheet = SpriteSheetLoader::GetInstance().GetSheet("Classic");
+            }
+            else if (sheet == 1) {
+                m_SpriteSheet = SpriteSheetLoader::GetInstance().GetSheet("Classic - Alt 1");
+            }
+            else if (sheet == 2) {
+                m_SpriteSheet = SpriteSheetLoader::GetInstance().GetSheet("Classic - Alt 2");
+            }
+            else if (sheet == 3) {
+                m_SpriteSheet = SpriteSheetLoader::GetInstance().GetSheet("Classic - Alt 3");
+            }
+            else if (sheet == 4) {
+                m_SpriteSheet = SpriteSheetLoader::GetInstance().GetSheet("Classic - Monochrome");
+            }
+            else if (sheet == 5) {
                 m_SpriteSheet = SpriteSheetLoader::GetInstance().GetSheet("Dark");
             }
-            else {
+            else if (sheet == 6) {
                 m_SpriteSheet = SpriteSheetLoader::GetInstance().GetSheet("Orange");
             }
         }

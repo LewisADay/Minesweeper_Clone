@@ -60,7 +60,7 @@ void SpriteSheetLoader::ProcessSheet(std::ifstream& iniFile) {
 	std::string line;
 	SheetInfo info{};
 
-	while (std::getline(iniFile, line), line != "") {
+	while (std::getline(iniFile, line) && line != "" && !iniFile.eof()) {
 		LineData data = GetLineData(line);
 
 		if (data.key == "DisplayName")  { info.DisplayName = data.value; }
